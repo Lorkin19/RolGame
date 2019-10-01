@@ -3,6 +3,6 @@ package interfaces;
 import enumeraciones.TipoMontura;
 
 public interface IMontura {
-	TipoMontura getTipo();
-	int getDuracionViaje(int distancia);
+	String getTipo();
+	double getDuracionViaje(int distancia);
 }

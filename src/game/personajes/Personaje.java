@@ -19,6 +19,9 @@ public abstract class Personaje implements IPersonaje {
 		this.tipo = tipo;
 		this.arma = arma;
 		this.montura = montura;
+		if (tipo.equals(TipoPersonaje.Mago)){
+			arma.setPuntosDanyo(50);
+		}
 	}
 	
 	@Override
@@ -41,14 +44,15 @@ public abstract class Personaje implements IPersonaje {
 	@Override
 	public void utilizaMontura(int distancia, Direccion direccion) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Te has desplazado " + distancia + " metros en " + montura.getDuracionViaje(distancia) +
+				" minutos en direccion " + direccion.toString() + ".");
 	}
 
 	@Override
 	public void info(){
 		System.out.println("Tipo personaje: " + this.tipo + ". Nombre: " + this.nombre + ".\n" +
 				"Arma: " + this.arma.getTipo() + ". Puntos danyo: " + this.arma.getPuntosDanyo() + ".\n" +
-				"Montura: " + this.montura.getTipo());
+				"Montura: " + this.montura.getTipo() + ". Velocidad de desplazamiento: " + montura.getVelocidad() + " km/h.");
 	}
 
 }

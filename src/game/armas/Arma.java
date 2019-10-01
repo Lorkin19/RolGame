@@ -18,4 +18,8 @@ public abstract class Arma{
     public String getTipo(){
         return this.tipo.toString();
     }
+
+    public void setPuntosDanyo(int puntosDanyo){
+        this.puntosDanyo += puntosDanyo;
+    }
 }

@@ -1,24 +1,32 @@
 package game.monturas;
 
 import enumeraciones.TipoMontura;
+import interfaces.IMontura;
 
-public abstract class Montura{
+public abstract class Montura implements IMontura {
     private TipoMontura tipo;
-    private float velocidad;
+    private double velocidad;
 
-    public Montura(TipoMontura tipo, float velocidad){
+    public Montura(TipoMontura tipo, double velocidad){
         this.tipo = tipo;
         this.velocidad = velocidad;
     }
 
+    public double getVelocidad(){
+        return this.velocidad;
+    }
+
+    @Override
     public String getTipo(){
         return this.tipo.toString();
     }
 
-    public float duracionViaje(float distancia){
+    @Override
+    public double getDuracionViaje(int distancia){
         if (distancia <= 0){
             return -1;
         }
-        return distancia/velocidad;
+        double d = distancia;
+        return ((d/1000)/velocidad) * 60;
     }
 }

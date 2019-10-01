@@ -1,5 +1,6 @@
 package game.personajes;
 
+import enumeraciones.TipoArma;
 import enumeraciones.TipoPersonaje;
 import game.armas.Arma;
 import game.monturas.Montura;

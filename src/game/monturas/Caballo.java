@@ -3,18 +3,8 @@ package game.monturas;
 import enumeraciones.TipoMontura;
 import interfaces.IMontura;
 
-public class Caballo implements IMontura {
-
-	@Override
-	public TipoMontura getTipo() {
-		// TODO Auto-generated method stub
-		return TipoMontura.Caballo;
+public class Caballo extends Montura {
+	public Caballo(){
+		super(TipoMontura.Caballo, 50.0);
 	}
-
-	@Override
-	public int getDuracionViaje(int distancia) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }
