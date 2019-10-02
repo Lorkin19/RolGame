@@ -23,7 +23,7 @@ public class Juego {
         System.out.println("Introduce el nombre de tu personaje: ");
         String nombre = sc.nextLine();
 
-        System.out.println("Escoge tu personaje:\n" +
+        System.out.println("\nEscoge tu personaje:\n" +
                 "1. Caballero\n" +
                 "2. Mago\n" +
                 "3. Soldado\n" +
@@ -37,12 +37,28 @@ public class Juego {
                 "Pulsa 1, 2 o 3 para escoger tu arma.");
         int arma = sc.nextInt();
 
-        System.out.println("Escoge tu montura:\n" +
+        System.out.println("\nEscoge tu montura:\n" +
                 "1. Caballo\n" +
                 "2. Dragon\n" +
                 "3. Sin montura\n" +
                 "Pulsa 1, 2 o 3 para escoger tu montura.");
         int montura = sc.nextInt();
+
+        System.out.println("\nIntroduce la cantidad de metros que quieres viajar (>= 0): ");
+        int distancia = sc.nextInt();
+        while (distancia < 0){
+            System.out.println("\nIntroduce la cantidad de metros que quieres viajar (>= 0): ");
+            distancia = sc.nextInt();
+        }
+
+        System.out.println("\nEscoge hacia donde quieres viajar:\n" +
+                "N -> Norte\n" +
+                "S -> Sur\n" +
+                "E -> Este\n" +
+                "O -> Oeste\n" +
+                "Pulsa N, S, E u O para escoger la dirección.");
+        sc.nextLine();
+        String direccion = sc.nextLine().toLowerCase();
 
         Montura m;
         Arma a;
@@ -83,15 +99,27 @@ public class Juego {
                 p = new Soldado(nombre, a, m);
                 break;
         }
-
-
+        Direccion d;
+        switch(direccion){
+            case "n": default:
+                d = Direccion.NORTE;
+                break;
+            case "s":
+                d = Direccion.SUR;
+                break;
+            case "e":
+                d = Direccion.ESTE;
+                break;
+            case "o":
+                d = Direccion.OESTE;
+                break;
+        }
+        System.out.println("\n");
         p.info();
-        p.utilizaMontura(5000, Direccion.NORTE);
+        p.utilizaMontura(distancia, d);
         p.utilizaArma();
 
-        /*System.out.println("¿Qué deseas hacer ahora?\n" +
-                "1. Salir." +
-                "2. Continuar.");*/
+        System.out.println("Bye :)");
 
         sc.close();
     }

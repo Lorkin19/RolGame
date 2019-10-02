@@ -44,7 +44,7 @@ public abstract class Personaje implements IPersonaje {
 	@Override
 	public void utilizaMontura(int distancia, Direccion direccion) {
 		// TODO Auto-generated method stub
-		System.out.println("Te has desplazado " + distancia + " metros en " + montura.getDuracionViaje(distancia) +
+		System.out.println("Te has desplazado " + distancia + " metros en " + (double)Math.round(montura.getDuracionViaje(distancia)*100d)/100d +
 				" minutos en direccion " + direccion.toString() + ".");
 	}
 
